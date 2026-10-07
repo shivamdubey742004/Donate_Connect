@@ -1,0 +1,847 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Donate - DonateConnect</title>
+
+
+    <!-- Bootstrap -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+
+    <style>
+
+        /* =========================================
+           GENERAL
+        ========================================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+
+        /* =========================================
+           MAIN DONATION BACKGROUND
+        ========================================= */
+
+        .donation-page {
+
+            min-height: 100vh;
+
+            /*
+                Donation / Charity Background
+            */
+
+            background-image:
+
+                linear-gradient(
+                    rgba(0, 30, 60, 0.65),
+                    rgba(0, 20, 45, 0.78)
+                ),
+
+                url("https://images.unsplash.com/photo-1593113630400-ea4288922497?auto=format&fit=crop&w=2000&q=90");
+
+            background-size: cover;
+
+            background-position: center;
+
+            background-repeat: no-repeat;
+
+            background-attachment: fixed;
+
+            min-height: 100vh;
+        }
+
+
+        /* =========================================
+           NAVBAR
+        ========================================= */
+
+        .navbar-custom {
+
+            background: rgba(13, 110, 253, 0.96);
+
+            padding: 15px 0;
+
+            box-shadow:
+                0 4px 15px rgba(0, 0, 0, 0.25);
+        }
+
+
+        .navbar-brand {
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 25px;
+
+            font-weight: 700;
+        }
+
+
+        .navbar-brand:hover {
+
+            color: white;
+        }
+
+
+        .home-link {
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 17px;
+
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+
+        .home-link:hover {
+
+            color: #dceaff;
+
+            transform: translateY(-1px);
+        }
+
+
+        /* =========================================
+           DONATION SECTION
+        ========================================= */
+
+        .donation-section {
+
+            padding: 65px 15px 80px;
+
+            min-height: calc(100vh - 75px);
+        }
+
+
+        /* =========================================
+           MAIN HEADING
+        ========================================= */
+
+        .main-heading {
+
+            text-align: center;
+
+            color: white;
+
+            margin-bottom: 35px;
+
+            text-shadow:
+                0 3px 10px rgba(0, 0, 0, 0.65);
+        }
+
+
+        .main-heading h1 {
+
+            font-size: 52px;
+
+            font-weight: 800;
+
+            margin-bottom: 10px;
+        }
+
+
+        .main-heading h1 span {
+
+            color: #58a6ff;
+        }
+
+
+        .main-heading p {
+
+            font-size: 20px;
+
+            color: #f5f5f5;
+
+            margin: 0;
+        }
+
+
+        /* =========================================
+           DONATION CARD
+        ========================================= */
+
+        .donation-card {
+
+            width: 100%;
+
+            max-width: 680px;
+
+            margin: auto;
+
+            background: rgba(255, 255, 255, 0.97);
+
+            border-radius: 22px;
+
+            padding: 38px;
+
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, 0.42);
+
+            transition: 0.3s ease;
+        }
+
+
+        .donation-card:hover {
+
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 30px 80px rgba(0, 0, 0, 0.48);
+        }
+
+
+        /* =========================================
+           CARD HEADING
+        ========================================= */
+
+        .card-title-area {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            padding-bottom: 20px;
+
+            margin-bottom: 25px;
+
+            border-bottom: 2px solid #e7ecf2;
+        }
+
+
+        .donation-icon {
+
+            width: 55px;
+
+            height: 55px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            background: #e8f2ff;
+
+            border-radius: 15px;
+
+            font-size: 29px;
+        }
+
+
+        .card-title-area h2 {
+
+            margin: 0;
+
+            color: #172b4d;
+
+            font-size: 28px;
+
+            font-weight: 700;
+        }
+
+
+        /* =========================================
+           FORM LABELS
+        ========================================= */
+
+        .form-label {
+
+            display: block;
+
+            color: #172b4d;
+
+            font-weight: 600;
+
+            margin-bottom: 7px;
+        }
+
+
+        /* =========================================
+           FORM INPUTS
+        ========================================= */
+
+        .form-control,
+        .form-select {
+
+            width: 100%;
+
+            border: 1px solid #d3dce8;
+
+            border-radius: 10px;
+
+            padding: 13px 15px;
+
+            margin-bottom: 18px;
+
+            font-size: 15px;
+
+            transition: 0.25s;
+        }
+
+
+        .form-control:focus,
+        .form-select:focus {
+
+            border-color: #0d6efd;
+
+            box-shadow:
+                0 0 0 3px rgba(13, 110, 253, 0.12);
+
+            outline: none;
+        }
+
+
+        textarea.form-control {
+
+            min-height: 115px;
+
+            resize: vertical;
+        }
+
+
+        /* =========================================
+           DONATION BUTTON
+        ========================================= */
+
+        .donate-button {
+
+            width: 100%;
+
+            border: none;
+
+            border-radius: 10px;
+
+            padding: 14px;
+
+            margin-top: 4px;
+
+            background: linear-gradient(
+                90deg,
+                #0d6efd,
+                #1769d3
+            );
+
+            color: white;
+
+            font-size: 18px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+        }
+
+
+        .donate-button:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 10px 25px rgba(13, 110, 253, 0.40);
+        }
+
+
+        /* =========================================
+           MESSAGE
+        ========================================= */
+
+        .help-message {
+
+            text-align: center;
+
+            margin-top: 22px;
+
+            color: #667085;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+        }
+
+
+        .heart {
+
+            color: #e63946;
+
+            font-size: 18px;
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        .footer {
+
+            background: rgba(8, 22, 40, 0.98);
+
+            color: white;
+
+            text-align: center;
+
+            padding: 22px;
+        }
+
+
+        .footer p {
+
+            margin: 0;
+
+            font-size: 15px;
+        }
+
+
+        /* =========================================
+           MOBILE RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 768px) {
+
+            .navbar-brand {
+
+                font-size: 21px;
+            }
+
+
+            .home-link {
+
+                font-size: 15px;
+            }
+
+
+            .donation-section {
+
+                padding: 45px 15px 60px;
+            }
+
+
+            .main-heading h1 {
+
+                font-size: 38px;
+            }
+
+
+            .main-heading p {
+
+                font-size: 17px;
+            }
+
+
+            .donation-card {
+
+                padding: 25px 20px;
+
+                border-radius: 18px;
+            }
+
+
+            .card-title-area h2 {
+
+                font-size: 23px;
+            }
+
+
+            .donation-icon {
+
+                width: 48px;
+
+                height: 48px;
+
+                font-size: 25px;
+            }
+
+        }
+
+
+        /* =========================================
+           SMALL MOBILE
+        ========================================= */
+
+        @media (max-width: 450px) {
+
+            .main-heading h1 {
+
+                font-size: 32px;
+            }
+
+
+            .main-heading p {
+
+                font-size: 15px;
+            }
+
+
+            .donation-card {
+
+                padding: 22px 17px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     MAIN PAGE
+========================================= -->
+
+<div class="donation-page">
+
+
+    <!-- =====================================
+         NAVBAR
+    ====================================== -->
+
+    <nav class="navbar-custom">
+
+        <div class="container
+                    d-flex
+                    justify-content-between
+                    align-items-center">
+
+
+            <!-- Website Name -->
+
+            <a href="index.html"
+               class="navbar-brand">
+
+                🤝 DonateConnect
+
+            </a>
+
+
+            <!-- Home -->
+
+            <a href="index.html"
+               class="home-link">
+
+                Home
+
+            </a>
+
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =====================================
+         DONATION SECTION
+    ====================================== -->
+
+    <section class="donation-section">
+
+        <div class="container">
+
+
+            <!-- =================================
+                 PAGE HEADING
+            ================================== -->
+
+            <div class="main-heading">
+
+                <h1>
+
+                    Make a
+                    <span>Donation</span>
+
+                </h1>
+
+
+                <p>
+
+                    Your contribution can help someone in need.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================
+                 DONATION FORM CARD
+            ================================== -->
+
+            <div class="donation-card">
+
+
+                <!-- Card Heading -->
+
+                <div class="card-title-area">
+
+                    <div class="donation-icon">
+
+                        🫶
+
+                    </div>
+
+
+                    <h2>
+
+                        Make a Donation
+
+                    </h2>
+
+                </div>
+
+
+
+                <!-- =================================
+                     FORM
+                ================================== -->
+
+                <form>
+
+
+                    <!-- NAME -->
+
+                    <label class="form-label">
+
+                        Your Name
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Enter your name"
+                        required
+                    >
+
+
+
+                    <!-- EMAIL -->
+
+                    <label class="form-label">
+
+                        Email
+
+                    </label>
+
+
+                    <input
+                        type="email"
+                        class="form-control"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+
+
+                    <!-- LOCATION -->
+
+                    <label class="form-label">
+
+                        Your Location
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        placeholder="City / Area"
+                        required
+                    >
+
+
+
+                    <!-- DONATION TYPE -->
+
+                    <label class="form-label">
+
+                        Donation Type
+
+                    </label>
+
+
+                    <select
+                        class="form-select"
+                        required
+                    >
+
+                        <option value="">
+
+                            Select Donation
+
+                        </option>
+
+
+                        <option>
+
+                            Money
+
+                        </option>
+
+
+                        <option>
+
+                            Food
+
+                        </option>
+
+
+                        <option>
+
+                            Clothes
+
+                        </option>
+
+
+                        <option>
+
+                            Books
+
+                        </option>
+
+
+                        <option>
+
+                            Medicines
+
+                        </option>
+
+
+                        <option>
+
+                            Other
+
+                        </option>
+
+                    </select>
+
+
+
+                    <!-- DONATION AMOUNT -->
+
+                    <label class="form-label">
+
+                        Donation Amount
+
+                    </label>
+
+
+                    <input
+                        type="number"
+                        class="form-control"
+                        placeholder="₹ Enter amount"
+                        min="1"
+                    >
+
+
+
+                    <!-- PURPOSE -->
+
+                    <label class="form-label">
+
+                        Purpose
+
+                    </label>
+
+
+                    <textarea
+                        class="form-control"
+                        rows="4"
+                        placeholder="What would you like your donation to support?"
+                    ></textarea>
+
+
+
+                    <!-- DONATE BUTTON -->
+
+                    <button
+                        type="submit"
+                        class="donate-button"
+                    >
+
+                        ❤️ Continue Donation
+
+                    </button>
+
+
+                </form>
+
+
+
+                <!-- =================================
+                     BOTTOM MESSAGE
+                ================================== -->
+
+                <div class="help-message">
+
+                    Every contribution matters.
+
+                    <span class="heart">
+                        ♥
+                    </span>
+
+                    <br>
+
+                    Together, we can make a difference.
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         FOOTER
+    ====================================== -->
+
+    <footer class="footer">
+
+        <p>
+
+            Created by
+            <strong>Shivam & Divayansh</strong>
+
+        </p>
+
+    </footer>
+
+
+</div>
+
+
+</body>
+
+</html>
